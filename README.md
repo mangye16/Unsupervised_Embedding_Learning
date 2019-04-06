@@ -11,10 +11,10 @@ Pytorch code for Unsupervised Embedding Learning via Invariant and Spreading Ins
 
 ## Usage
 
-Our code extends the pytorch implementation of NCE paper in [Github](https://github.com/zhirongw/lemniscate.pytorch) and . 
+Our code extends the pytorch implementation of NCE paper in [Github](https://github.com/zhirongw/lemniscate.pytorch). 
 Please refer to the official repo for details of data preparation and hardware configurations.
 
-- Prerequisites: python2.7, [pytorch=0.4](http://pytorch.org),numpy,TensorboardX, scikit_learn
+- Prerequisites: Python2.7, [pytorch=0.4](http://pytorch.org), Numpy, TensorboardX, Scikit_learn
 
 - Clone this repo: `git clone https://github.com/mangye16/Unsupervised_Embedding_Learning`
 
@@ -26,7 +26,7 @@ The training and testing set share the same categories. We use kNN classifier to
 python demo_seen.py --dataset cifar --batch-t 0.1 --lr 0.03 --low-dim 128 --batch-size 128 --gpu 0,1,2,3
 ```
 
-  - `--dataset`: "cifar": cifar-10 dataset or, "stl": stl-10 dataset.
+  - `--dataset`: "cifar": cifar-10 dataset, "stl": stl-10 dataset.
   
   - `--batch-t`: softmax temperature parameter (0.05-0.1).
   
@@ -57,7 +57,7 @@ The training and testing set DO NOT share any common categories. We use recall a
 #### 2) Start Training
 
 ```bash
-python demo_unseen.py --dataset cub200 --arch inception_v1_ml --lr 0.01 --low-dim 128 --batch-size 128 --gpu 0
+python demo_unseen.py --dataset cub200 --arch inception_v1_ml --lr 0.01 --low-dim 128 --batch-size 64 --gpu 0
 ```
 
   - `--dataset`: "cub200": CUB200-2011 dataset or, "car196": Cars196 dataset, "ebay": Stanford Online Product dataset.
