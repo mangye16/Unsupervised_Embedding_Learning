@@ -4,10 +4,18 @@ Pytorch code for Unsupervised Embedding Learning via Invariant and Spreading Ins
 
 ## Highlight
 
-- We formulate unsupervised embedding learning with data augmentation invariant and instance spread-out feature.
-- We propose to optimize the embedding directly on the real-time instance features with softmax function.
-- Achieves much faster learning speed and better accuracy.
-- The learned embedding performs well on both seen and unseen testing categories.
+The goal of this work is to learn a feature extraction DNN, such that features of the same instance under different data augmentations should be invariant, while features of different image instances should be separated.
+
+<img src="./fig/Motivation.png" width="300">
+
+We propose to optimize the embedding directly on the real-time instance features with softmax function.
+
+<img src="./fig/Pipeline.png" width="600">
+
+The proposed feature achieves much faster learning speed and better accuracy.
+<img src="./fig/Performance.png" width="300">
+
+The learned embedding performs well on both seen and unseen testing categories.
 
 ## Usage
 
