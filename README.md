@@ -6,7 +6,7 @@ Pytorch code for Unsupervised Embedding Learning via Invariant and Spreading Ins
 
 The goal of this work is to learn a feature extraction DNN, such that features of the same instance under different data augmentations should be invariant, while features of different image instances should be separated.
 
-<img src="./fig/Motivation.png" width="300">
+<img src="./fig/Motivation.png" width="400">
 
 We propose to optimize the embedding directly on the real-time instance features with softmax function.
 
