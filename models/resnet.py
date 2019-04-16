@@ -1,7 +1,7 @@
 import torch.nn as nn
 import math
 import torch.utils.model_zoo as model_zoo
-from normalize import Normalize
+from models.normalize import Normalize
 
 import torch
 
