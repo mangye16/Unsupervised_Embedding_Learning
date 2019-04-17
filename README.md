@@ -13,6 +13,7 @@ We propose to optimize the embedding directly on the real-time instance features
 <img src="./fig/Pipeline.png" width="600">
 
 The proposed feature achieves much faster learning speed and better accuracy.
+
 <img src="./fig/Performance.png" width="300">
 
 The learned embedding performs well on both seen and unseen testing categories.
