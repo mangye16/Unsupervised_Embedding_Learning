@@ -9,7 +9,7 @@ Reference:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from normalize import Normalize
+from models.normalize import Normalize
 import math
 from torch.autograd import Variable
 

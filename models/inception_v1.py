@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import os
 import hickle
-from normalize import Normalize
+from models.normalize import Normalize
 import torch.nn.functional as F
 
 # originate from
