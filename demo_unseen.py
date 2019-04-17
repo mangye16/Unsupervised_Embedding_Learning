@@ -19,7 +19,7 @@ import datasets
 import math
 import numpy as np
 
-from BatchAverage import BatchAverage, BatchCriterion
+from BatchAverage import BatchCriterion
 from utils import *
 
 from tensorboardX import SummaryWriter
@@ -167,18 +167,14 @@ elif args.arch=='inception_v1_ml':
 elif args.arch=='resnet50':
     pool_dim = 2048
 
-# define leminiscate: inner product within each mini-batch (Ours)
-lemniscate = BatchAverage(args.low_dim, args.batch_t, args.batch_size)
-
 if device == 'cuda':
     net = torch.nn.DataParallel(net, device_ids=range(torch.cuda.device_count()))
 cudnn.benchmark = True
 
 # define loss function: inner product loss within each mini-batch
-criterion = BatchCriterion(args.batch_m, args.batch_size)
+criterion = BatchCriterion(args.batch_m, args.batch_t, args.batch_size)
 
 net.to(device)
-lemniscate.to(device)
 criterion.to(device)
 
 if args.test_only or len(args.resume)>0:
@@ -188,7 +184,6 @@ if args.test_only or len(args.resume)>0:
     assert os.path.isdir(args.model_dir), 'Error: no checkpoint directory found!'
     checkpoint = torch.load(model_path)
     net.load_state_dict(checkpoint['net'])
-    lemniscate = checkpoint['lemniscate']
     best_acc = checkpoint['recall']
     start_epoch = checkpoint['epoch']
     
@@ -237,9 +232,7 @@ def train(epoch):
 
         features = net(inputs)
         
-        outputs = lemniscate(features, indexes)
-
-        loss = criterion(outputs, indexes)
+        loss = criterion(features, indexes)
         
         loss.backward()
         optimizer.step()
@@ -362,7 +355,6 @@ for epoch in range(start_epoch, start_epoch+60):
         print('Saving..')
         state = {
             'net': net.state_dict(),
-            'lemniscate': lemniscate,
             'recall': recal,
             'nmi': nmi,
             'epoch': epoch,
