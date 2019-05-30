@@ -66,7 +66,7 @@ The training and testing set DO NOT share any common categories. We use recall a
 #### 2) Start Training
 
 ```bash
-python demo_unseen.py --dataset cub200 --arch inception_v1_ml --lr 0.01 --low-dim 128 --batch-size 64 --gpu 0
+python demo_unseen.py --dataset cub200 --arch inception_v1_ml --lr 0.001 --low-dim 128 --batch-size 64 --gpu 0
 ```
 
   - `--dataset`: "cub200": CUB200-2011 dataset or, "car196": Cars196 dataset, "ebay": Stanford Online Product dataset.
