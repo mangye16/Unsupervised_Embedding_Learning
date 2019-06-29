@@ -158,7 +158,7 @@ if args.test_only:
 optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9, weight_decay=5e-4)
 
 def adjust_learning_rate(optimizer, epoch):
-    """Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""
+    """Sets the learning rate to the initial LR decayed at 120, 160 and 200"""
     lr = args.lr
     if epoch >= 120 and epoch < 160:
         lr = args.lr * 0.1
